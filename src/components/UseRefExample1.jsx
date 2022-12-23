@@ -1,27 +1,26 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
-const UseRefExample1 = () => {
+function UseRefExample1() {
   const inputRef = useRef();
   const paraRef = useRef();
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // console.log(123);
-    // console.log(inputRef.current.classList.value);
+    console.log(inputRef.current.value);
     inputRef.current.value = "Hello";
     inputRef.current.style.backgroundColor = "red";
-    paraRef.current.innerText = "Goodbay";
+    paraRef.current.innerText = "Goodbye";
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <label htmlFor="name">Name</label>
         <input
           type="text"
           ref={inputRef}
-          className="form-control mb-4 w-25"
-          id="Name"
+          id="name"
+          className="form-control mb-2"
         />
         <button
           type="submit"
@@ -30,14 +29,14 @@ const UseRefExample1 = () => {
           Submit
         </button>
         <p
-          ref={paraRef}
           onClick={() => inputRef.current.focus()}
+          ref={paraRef}
         >
           Hello
         </p>
       </form>
     </div>
   );
-};
+}
 
 export default UseRefExample1;
