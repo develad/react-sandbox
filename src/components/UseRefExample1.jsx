@@ -1,42 +1,7 @@
-import { useRef } from "react";
+import React from "react";
 
-function UseRefExample1() {
-  const inputRef = useRef();
-  const paraRef = useRef();
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(inputRef.current.value);
-    inputRef.current.value = "Hello";
-    inputRef.current.style.backgroundColor = "red";
-    paraRef.current.innerText = "Goodbye";
-  };
-
-  return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          ref={inputRef}
-          id="name"
-          className="form-control mb-2"
-        />
-        <button
-          type="submit"
-          className="btn btn-primary w-25"
-        >
-          Submit
-        </button>
-        <p
-          onClick={() => inputRef.current.focus()}
-          ref={paraRef}
-        >
-          Hello
-        </p>
-      </form>
-    </div>
-  );
-}
+const UseRefExample1 = () => {
+  return <div>UseRefExample1</div>;
+};
 
 export default UseRefExample1;
